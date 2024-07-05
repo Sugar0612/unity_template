@@ -1,3 +1,14 @@
+/*
+author: ShiyiTang
+time: 2024/07/05-16:18:40
+describe: å†…å­˜æ± æ¨¡æ¿
+eg: 
+    New: public PoolList<T> m_Pool = new PoolList<T>();
+    Init: m_Pool.AddListener(Instance);
+    Create: T t = m_Pool.Create("Static_T");
+    Destroy: m_Pool.Destroy(t);
+*/
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,13 +16,13 @@ using UnityEngine;
 
 public class PoolList<T> where T : Component
 {
-    // ÊµÀı»¯·½·¨
+    // Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public Func<T> OnInstance = () => { return default(T); };
 
-    // ¶ÔÏóÁĞ±í
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
     public Queue<T> m_List = new Queue<T>();
 
-    //×î´ó¶ÔÏóÊı
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public int m_MaxSize = 1000;
 
     public void AddListener(Func<T> callback)
@@ -20,7 +31,7 @@ public class PoolList<T> where T : Component
     }
 
     /// <summary>
-    /// ÖØĞÂÊ¹ÓÃ/ĞÂ½¨ obj
+    /// ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½/ï¿½Â½ï¿½ obj
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
@@ -43,7 +54,7 @@ public class PoolList<T> where T : Component
     }
 
     /// <summary>
-    /// »ØÊÕ/Ïú»Ù obj
+    /// ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ obj
     /// </summary>
     /// <param name="t"></param>
     public void Destroy(T t)
